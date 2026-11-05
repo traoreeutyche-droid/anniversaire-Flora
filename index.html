@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pour Gracias ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #ffb6c1, #ffe4ec, #ff69b4);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 30px 0;
+}
+
+.carte {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 450px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px #d94b7b66;
+    animation: apparition 1.5s ease;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 27px;
+}
+
+p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.signature {
+    color: #e91e63;
+}
+
+.coeur {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: monter 6s linear infinite;
+    z-index: 1;
+}
+
+@keyframes monter {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="carte">
+
+<h1>🎂 Joyeux anniversaire, Gracias ! ❤️</h1>
+
+<p>
+Aujourd'hui n'est pas un jour comme les autres.
+C'est une journée particulière, celle où une personne
+merveilleuse a vu le jour. Je ne pouvais pas laisser
+cette occasion passer sans prendre un moment pour
+t'écrire quelques mots.
+</p>
+
+<p>
+Je te souhaite une merveilleuse journée, remplie
+de bonheur, de sourires sincères et de belles surprises.
+Que cette nouvelle année t'apporte la paix du cœur,
+une santé solide, beaucoup de réussite et la réalisation
+de tes rêves les plus chers.
+</p>
+
+<p>
+Gracias, je ne sais pas si je te le dis assez souvent,
+mais ta présence a quelque chose de particulier.
+Certaines personnes entrent dans notre vie et,
+sans forcément faire de grands gestes, arrivent
+à y laisser une belle empreinte. Tu fais partie
+de ces personnes.
+</p>
+
+<p>
+Je te souhaite de ne jamais perdre cette lumière
+qui te rend unique. Continue d'avancer, de croire
+en toi, de poursuivre tes ambitions et de sourire.
+Tu mérites de belles choses et tu as encore tellement
+de merveilleux moments à découvrir.
+</p>
+
+<p>
+J'espère que cette nouvelle bougie marquera le début
+d'un chapitre rempli de belles opportunités,
+de souvenirs inoubliables et de raisons supplémentaires
+d'être heureuse.
+</p>
+
+<p>
+Si je pouvais te souhaiter une seule chose,
+ce serait de trouver chaque jour une raison de sourire,
+de te sentir appréciée et de ne jamais douter
+de la belle personne que tu es.
+</p>
+
+<p>
+Profite de ta journée, Gracias.
+Aujourd'hui, c'est ton moment, et j'espère
+sincèrement qu'il sera aussi beau que tu le mérites.
+</p>
+
+<h2 class="signature">
+HAPPY BIRTHDAY, GRACIAS ! ❤️🎀
+</h2>
+
+</div>
+
+<script>
+function creerCoeur() {
+    const coeur = document.createElement("div");
+    coeur.className = "coeur";
+    coeur.innerHTML = "❤️";
+    coeur.style.left = Math.random() * 100 + "vw";
+    coeur.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
+
+    document.body.appendChild(coeur);
+
+    setTimeout(() => {
+        coeur.remove();
+    }, 7000);
+}
+
+setInterval(creerCoeur, 400);
+</script>
+
+</body>
+</html>
