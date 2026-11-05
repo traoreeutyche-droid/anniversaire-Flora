@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invitation pour Gracias</title>
+<style>
+  :root {
+    --bg: #2a1740;
+    --panel: #3a2257;
+    --gold: #f2c14e;
+    --text: #fff7e8;
+    --muted: #cdbde0;
+    --error: #ff9a8b;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: radial-gradient(circle at 50% 0%, #4a2a70 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: Georgia, "Times New Roman", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  main {
+    width: 100%;
+    max-width: 420px;
+    background: var(--panel);
+    border: 2px solid var(--gold);
+    border-radius: 24px;
+    padding: 36px 28px;
+    text-align: center;
+  }
+  h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 12px; }
+  p { color: var(--muted); font-size: 1.05rem; line-height: 1.5; margin: 0 0 24px; }
+  input {
+    width: 100%;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    text-align: center;
+    padding: 14px;
+    border-radius: 14px;
+    border: 2px solid var(--muted);
+    background: #24133a;
+    color: var(--text);
+    font-family: inherit;
+  }
+  input:focus { outline: 3px solid var(--gold); border-color: var(--gold); }
+  button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    font-family: inherit;
+    border: 0;
+    border-radius: 14px;
+    background: var(--gold);
+    color: #2a1740;
+    cursor: pointer;
+  }
+  #msg { min-height: 1.5em; margin: 14px 0 0; color: var(--error); font-size: 1rem; }
+  .shake { animation: shake .35s; }
+  @keyframes shake { 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
+  @media (prefers-reduced-motion: reduce) { .shake { animation: none; } }
+</style>
+</head>
+<body>
+<main id="card">
+  <h1>Gracias, tu es invitée</h1>
+  <p>Entre le code écrit sur ta carte pour ouvrir ta surprise.</p>
+  <input id="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ton code" aria-label="Code d'accès">
+  <button id="go" type="button">Ouvrir</button>
+  <div id="msg" role="alert"></div>
+</main>
+<script>
+  var CODE = "SURPRISE";          // le mot de passe (majuscules ou minuscules, peu importe)
+  var DESTINATION = "index.html"; // ta page d'anniversaire
+  var input = document.getElementById("code");
+  var msg = document.getElementById("msg");
+  var card = document.getElementById("card");
+
+  function check() {
+    if (input.value.trim().toUpperCase() === CODE.toUpperCase()) {
+      window.location.href = DESTINATION;
+    } else {
+      msg.textContent = "Ce code n’est pas bon, essaie encore.";
+      card.classList.remove("shake");
+      void card.offsetWidth;
+      card.classList.add("shake");
+    }
+  }
+  document.getElementById("go").addEventListener("click", check);
+  input.addEventListener("keydown", function (e) { if (e.key === "Enter") check(); });
+</script>
+</body>
+</html>
